@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Card, CardText, CardMedia, CardTitle} from 'material-ui/Card';
-
+import { Card, CardText, CardMedia, CardTitle, CardActions } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 import {indigo400, redA400, lightBlueA400, amberA400} from 'material-ui/styles/colors';
 
 export default class PlaceCard extends React.Component {
@@ -14,6 +14,10 @@ export default class PlaceCard extends React.Component {
           </CardMedia>
           <CardTitle title={this.props.place.title}></CardTitle>
           <CardText>{this.props.place.description}</CardText>
+          <CardActions style={{'textAlign': 'right'}}>
+            <FlatButton secondary={true} label="Ver más"></FlatButton>
+            <FlatButton secondary={true} onClick={()=>this.props.onRemove(this.props.place)} label="Ocultar"></FlatButton>
+          </CardActions>
         </Card>
       </div>
     )
